@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../logout_page.dart';
+import './logout_page.dart';
 
 
 class AppPage extends StatefulWidget {
