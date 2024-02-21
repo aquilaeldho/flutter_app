@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 
-//import 'home_page.dart';
-import 'package:aquila_project2/home_page.dart';
-
-//import 'sign_up_page.dart';
-import 'package:aquila_project2/sign_up_page.dart';
-
-//import 'forgot_password.dart';
-import 'package:aquila_project2/forgot_password.dart';
+import 'home_page.dart';
+import 'sign_up_page.dart';
+import 'forgot_password.dart';
 
 
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
 
-  // final String title;
 
   @override
   State<SignInPage> createState() => _SignInPageState();
@@ -43,9 +37,9 @@ class _SignInPageState extends State<SignInPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset(
-                  'logo1.jpg', // Path to your logo file in assets folder
-                  width:  250, // Set the width of the logo
-                  height:  200, // Set the height of the logo
+                  'assets/images/logo.jpg', 
+                  width:  250, 
+                  height:  200, 
                 ),
                 const SizedBox(height:   10),
                 Padding(
