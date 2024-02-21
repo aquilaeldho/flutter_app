@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 
-import 'package:aquila_project2/sign_in_page.dart';
+import 'ui/sign_in_page.dart';
 
 
 void main() {
@@ -20,3 +19,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+
