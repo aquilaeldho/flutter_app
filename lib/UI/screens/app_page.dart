@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../logout_page.dart';
+
 
 class AppPage extends StatefulWidget {
   const AppPage({super.key});
@@ -55,44 +57,7 @@ class _AppPageState extends State<AppPage> {
         ),
       ),
 
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          _pages[_currentIndex],
-          GestureDetector(
-            onTap: () {
-              // Handle the tap event here
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const CrochetOne()),
-              );
-            },
-            child: Image.asset('crochet.jpg'), // replace with your image path
-          ),
-          const SizedBox(height:  10), // add some space between images
-          GestureDetector(
-            onTap: () {
-              // Handle the tap event here
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const CrochetTwo()),
-              );
-            },
-            child: Image.asset('crochet.jpg'), // replace with your image path
-          ),
-          const SizedBox(height:  10), // add some space between images
-          GestureDetector(
-            onTap: () {
-              // Handle the tap event here
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const CrochetThree()),
-              );
-            },
-            child: Image.asset('crochet.jpg'), // replace with your image path
-          ),
-        ],
-      ),
+      body: _pages[_currentIndex],
 
 
       bottomNavigationBar: BottomNavigationBar(
@@ -125,51 +90,46 @@ class _AppPageState extends State<AppPage> {
       ),
 
 
-    drawer: Drawer(
-      child: ListView(
-    // Important: Remove any padding from the ListView.
-        padding: EdgeInsets.zero,
-        children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blue,
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text('More'),
             ),
-             child: Text('More'),
-          ),
-          ListTile(
-            title: const Text('Your Orders'),
-            selected: _selectedIndex == 0,
-            onTap: () {
-    // Update the state of the app
-              _onItemTapped(0);
-    // Then close the drawer
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: const Text('Hot Picks'),
-            selected: _selectedIndex == 1,
-            onTap: () {
-    // Update the state of the app
-              _onItemTapped(1);
-    // Then close the drawer
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: const Text('Settings'),
-            selected: _selectedIndex == 1,
-            onTap: () {
-              // Update the state of the app
-              _onItemTapped(1);
-              // Then close the drawer
-              Navigator.pop(context);
-            },
-          ),
+            ListTile(
+              title: const Text('Your Orders'),
+              selected: _selectedIndex == 0,
+              onTap: () {
+                // Update the state of the app
+                _onItemTapped(0);
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Hot Picks'),
+              selected: _selectedIndex == 1,
+              onTap: () {
+                _onItemTapped(1);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Settings'),
+              selected: _selectedIndex == 1,
+              onTap: () {
+                _onItemTapped(1);
+                Navigator.pop(context);
+              },
+            ),
 
-        ],
+          ],
+        ),
       ),
-    ),
     );
   }
 }
@@ -197,7 +157,53 @@ class ShopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('You are on Shop Page'));
+    return Scaffold(
+    body: Center(
+      child: Column(
+
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CrochetOne()),
+            );
+          },
+
+          child: Image.asset('assets/images/crochet_thing1.jpg',
+            width: 150,
+            height: 150,),
+        ),
+        const SizedBox(height:  10), 
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CrochetTwo()),
+            );
+          },
+          child: Image.asset(
+            'assets/images/crochet_thing2.jpg',
+            width: 150,
+            height: 150,
+          ), 
+        ),
+        const SizedBox(height:  10), 
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CrochetThree()),
+            );
+          },
+          child: Image.asset('assets/images/crochet_thing3.jpg',
+            width: 150,
+            height: 150,), 
+        ),
+      ],
+    ),),);
   }
 }
 
@@ -217,63 +223,64 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile Page'),
+        title: const Text('Profile'),
       ),
-    body: const SingleChildScrollView(
-      child: Column(
-        children: <Widget>[
-          // CircleAvatar(
-          //   radius:   5,
-          //   backgroundImage: NetworkImage('https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fsearch%2Fimages%3Fk%3Dunknown%2Buser&psig=AOvVaw12F1Nn1-EDVz-IKKKR-M_0&ust=1708602022226000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMC8-9msvIQDFQAAAAAdAAAAABAD'), // Replace with your image path
-          // ),
-        // const Expanded(flex: 2, child: _TopPortion()),
-          Expanded(
-            flex: 3,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Text(
-                    "Richie Lorie",
+      body: Center(
 
-                  ),
-                  SizedBox(height:   5),
-                  Text(
-                    'John Doe',
-                      style: TextStyle(
-                        fontSize:   24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                  ),
-                  SizedBox(height:   5),
-                  Text(
-                    'john.doe@example.com',
-                    style: TextStyle(
-                        fontSize:   18,
-                        color: Colors.grey,
-                    ),
-                  ),
-                   SizedBox(height:   5),
-                    Text(
-                      'Profile description or status update.',
-                      style: TextStyle(
-                      fontSize:   16,
-                      ),
-                    ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const CircleAvatar(
+              radius:  50.0,
+              backgroundImage: NetworkImage('https://example.com/profile_picture.jpg'),
+            ),
+            const SizedBox(height:  10.0),
+            const Text(
+              'User Name',
+              style: TextStyle(fontSize:  24.0, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height:  10.0),
+            const Text(
+              'User E-mail',
+              style: TextStyle(fontSize:  16.0),
+            ),
+            const SizedBox(height:  20.0),
+            Column(
+              children: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    // Handle button tap
+                  },
+                  child: const Text('Coupons'),
+                ),
+                const SizedBox(height:  10.0),
+                TextButton(
+                  onPressed: () {
+                    // Handle button tap
+                  },
+                  child: const Text('Manage Account'),
+                ),
+                const SizedBox(height:  10.0),
+                TextButton(
+                  onPressed: () => const LogoutPage(),
+                  child: const Text('Log out'),
 
-                ],
-              ),),) ], ), ), );
-
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
-
 
 class CrochetOne extends StatelessWidget {
   const CrochetOne({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('You have selected item 1', style: TextStyle(fontSize:  30, color: Colors.blue),));
+    return const Center(child: Text('Mr.Bat: Rs 500', style: TextStyle(fontSize:  30, color: Colors.blue),));
   }
 }
 
@@ -282,7 +289,7 @@ class CrochetTwo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('You have selected item 2', style: TextStyle(fontSize:  30, color: Colors.blue),));
+    return const Center(child: Text('Mr.Bunny: Rs 1000', style: TextStyle(fontSize:  30, color: Colors.blue),));
   }
 }
 
@@ -291,6 +298,6 @@ class CrochetThree extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('You have selected item 3', style: TextStyle(fontSize:  30, color: Colors.blue),));
+    return const Center(child: Text('Mr.Cow: Rs 750', style: TextStyle(fontSize:  30, color: Colors.blue),));
   }
 }
