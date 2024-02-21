@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'UI/screens/app_page.dart';
-
-
+import 'screens/app_page.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -13,13 +11,13 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Home Page'),
-        ),
+      appBar: AppBar(
+        title: const Text('Home Page'),
+      ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('welcome_bg.jpg'), // Replace with your image path
+            image: AssetImage('assets/images/welcome_bg.jpg'), // Replace with your image path
             fit: BoxFit.cover,
           ),
         ),
@@ -29,14 +27,14 @@ class HomePage extends StatelessWidget {
             children: [
               Text(
                 'Welcome $name!',
-                style: const TextStyle(fontSize:  30, color: Colors.blue),
+                style: const TextStyle(fontSize:  30, color: Colors.purpleAccent),
 
               ),
               const SizedBox(height:  10),
 
               const Text(
                 'Immerse yourself in a captivating array of meticulously crafted pieces',
-                style: TextStyle(fontSize:  20, color: Colors.blue, fontFamily: 'RobotoMono'),
+                style: TextStyle(fontSize:  20, color: Colors.purpleAccent, fontFamily: 'Courier'),
 
               ),
 
