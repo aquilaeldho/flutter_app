@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 
 class ForgotPasswordPage extends StatelessWidget {
-  // static const String id = 'forgot-password-page';
-
   const ForgotPasswordPage({super.key});
 
   @override
